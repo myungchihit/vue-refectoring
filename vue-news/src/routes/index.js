@@ -3,10 +3,13 @@ import VueRouter from "vue-router";
 import NewsView from '../views/NewsView';
 import JobsView from '../views/JobsView';
 import AskView from '../views/AskView';
+import ItemView from '../views/ItemView';
+import UserView from '../views/UserView';
 
 Vue.use(VueRouter);
 
-export default new VueRouter({
+export const router = new VueRouter({
+    mode: 'history',
     routes: [
         {
             path: '/',
@@ -26,5 +29,13 @@ export default new VueRouter({
             path: '/jobs',
             component: JobsView,
         },
+        {
+            path: '/item',
+            component: ItemView
+        },
+        {
+            path: '/user',
+            component: UserView
+        }
     ]
 });
