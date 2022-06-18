@@ -14,11 +14,8 @@ export default {
     }
   },
   created() {
-    var vm = this;
     fetchJobsList()
-    .then(response => {
-      vm.jobs = response.data;
-    })
+    .then(response => this.jobs = response.data)
     .catch(error => console.log(error));
   }
 }
