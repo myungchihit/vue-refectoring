@@ -34,7 +34,8 @@ export const router = new VueRouter({
             component: ItemView
         },
         {
-            path: '/user',
+            // dynamic router
+            path: '/user/:id',
             component: UserView
         }
     ]
