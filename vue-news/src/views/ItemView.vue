@@ -21,7 +21,7 @@
     <!-- 질문 댓글 -->
     <section>
       <!-- content가 아예 html을 값으로 가지고 있음 -->
-      <div v-html="fetchedItem.content"></div>  
+      <div v-html="fetchedItem.content"></div>
     </section>
   </div>
 </template>
