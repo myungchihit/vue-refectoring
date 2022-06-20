@@ -1,4 +1,4 @@
-import { fetchNewsList, fetchJobsList, fetchAskList, fetchUserInfo } from '../api/index';
+import { fetchNewsList, fetchJobsList, fetchAskList, fetchUserInfo, fetchCommentItem } from '../api/index';
 
 export default {
     FETCH_NEWS(context) {  // actions 파라미터로 context
@@ -24,6 +24,11 @@ export default {
     FETCH_USER({ commit }, userName){
         fetchUserInfo(userName)
         .then(({ data }) => this.jobs = commit('SET_USER', data))
+        .catch(error => console.log(error));            
+    },
+    FETCH_ITEM({ commit }, id){
+        fetchCommentItem(id)
+        .then(({ data }) => this.item = commit('SET_ITEM', data))
         .catch(error => console.log(error));            
     }
 }
