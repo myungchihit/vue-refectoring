@@ -38,31 +38,19 @@
 
 <script>
 export default {
-  created() {
-    // fetchNewsList()
-    // .then(response => this.newses = response.data)
-    // .catch(error => console.log(error));
-    const name = this.$route.name;
-    if(name === 'news'){
-      this.$store.dispatch('FETCH_NEWS');
-    } else if( name === 'ask'){
-      this.$store.dispatch('FETCH_ASKS');
-    } else if( name === 'jobs'){
-      this.$store.dispatch('FETCH_JOBS');
-    }
-  },
   computed: {
     listItems() {
-      const name = this.$route.name;
-      let result;
-      if(name === 'news'){
-        result = this.$store.state.news;
-      } else if( name === 'ask'){
-        result = this.$store.state.asks;
-      } else if( name === 'jobs'){
-        result = this.$store.state.jobs;
-      }
-      return result;
+      return this.$store.state.list;
+      // const name = this.$route.name;
+      // let result;
+      // if(name === 'news'){
+      //   result = this.$store.state.news;
+      // } else if( name === 'ask'){
+      //   result = this.$store.state.asks;
+      // } else if( name === 'jobs'){
+      //   result = this.$store.state.jobs;
+      // }
+      // return result;
     }
   }
 }
