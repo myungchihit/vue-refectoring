@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-// import NewsView from '../views/NewsView';
+//import NewsView from '../views/NewsView';
 // import JobsView from '../views/JobsView';
 // import AskView from '../views/AskView';
 import ItemView from '../views/ItemView';
