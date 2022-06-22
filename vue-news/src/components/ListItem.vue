@@ -8,14 +8,27 @@
         </div>
         <!-- 기타 정보 영역 -->
         <div>
+          <!-- 타이틀 영역 -->
           <p class="news-title">
-            <a v-bind:href="item.url">{{ item.title }}</a>
+            <template v-if="item.domain"> <!-- news, job은 다른 사이트로 이동 -->
+              <a v-bind:href="item.url">{{ item.title }}</a>
+            </template>
+            <template v-else> <!-- ask는 상세페이지 이동 -->
+              <router-link v-bind:to="`item/${item.id}`">
+                {{ item.title }}
+              </router-link>
+            </template>
           </p>
           <small class="link-text">
             by
-            <router-link v-bind:to="`/user/${item.user}`" class="link-text">
+            <router-link 
+              v-if="item.user" 
+              v-bind:to="`/user/${item.user}`" class="link-text">
               {{ item.user }}
-            </router-link>  
+            </router-link>
+            <a :href="item.url" class="link-text" v-else> <!-- job일때는 다른페이지 이동 -->
+                {{item.domain}}
+            </a>  
           </small>
         </div>
       </li>
