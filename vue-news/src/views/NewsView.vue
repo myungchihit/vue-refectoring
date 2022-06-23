@@ -8,12 +8,19 @@
 //import bus from '../utils/bus';
 import ListItem from '../components/ListItem.vue';
 import ListMixin from '../mixins/ListMixin.js';
+//import bus from '../utils/bus';
 
 export default {
   components: {
     ListItem,
   },
   mixins: [ListMixin],
+
+  // spiner end가 공통 로직이라 mixins로 뺄수가 있다.
+  // mounted(){
+  //   bus.$emit('end:spinner');
+  // }
+  
   // created() {
   //   bus.$emit('start:spinner');
   //   this.$store.dispatch('FETCH_NEWS')
