@@ -22,22 +22,34 @@ export default {
     //     .then(({ data }) => this.asks = commit('SET_ASKS', data))
     //     .catch(error => console.log(error));            
     // },
-    FETCH_USER({ commit }, userName){
-        return fetchUserInfo(userName)
-        .then(({ data }) => this.jobs = commit('SET_USER', data))
-        .catch(error => console.log(error));            
-    },
-    FETCH_ITEM({ commit }, id){
-        return fetchCommentItem(id)
-        .then(({ data }) => this.item = commit('SET_ITEM', data))
-        .catch(error => console.log(error));            
-    },
-    FETCH_LIST({ commit }, name ){
-        return fetchList(name)
-        .then((response) => {
-            commit('SET_LIST', response.data)
+
+    // promise
+    // FETCH_USER({ commit }, userName){
+    //     return fetchUserInfo(userName)
+    //     .then(({ data }) => this.jobs = commit('SET_USER', data))
+    //     .catch(error => console.log(error));            
+    // },
+
+    // async --> 여기서 try catch를 잡아도 되지만 api에서도 하는방법이 있음
+    async FETCH_USER({ commit }, userName){
+        try{
+            const response = await fetchUserInfo(userName);
+            commit('SET_USER', response.data);
             return response;
-        })
-        .catch(error => console.log(error));
+        }catch(error){
+            console.log(error);
+        }
+    },
+
+    // api에서 try, catch 잡아줌
+    async FETCH_ITEM({ commit }, id){
+        const response = await fetchCommentItem(id)
+        commit('SET_ITEM', response.data);
+        return response;
+    },
+    async FETCH_LIST({ commit }, name ){
+        const response = await fetchList(name);
+        commit('SET_LIST', response.data);
+        return response;
     }
 }

@@ -22,12 +22,22 @@ function fetchUserInfo(userName){
     return axios.get(`${config.baseUrl}user/${userName}.json`);
 }
 
-function fetchCommentItem(id){
-    return axios.get(`${config.baseUrl}item/${id}.json`);
+async function fetchCommentItem(id){
+    try {
+        const response = await axios.get(`${config.baseUrl}item/${id}.json`);
+        return response;
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 function fetchList(pageName){
-    return axios.get(`${config.baseUrl}${pageName}.json`);
+    try {
+        const response = axios.get(`${config.baseUrl}${pageName}.json`);
+        return response;   
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 export{
