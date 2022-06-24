@@ -1,10 +1,8 @@
 <template>
-  <canvas id="lineChart"></canvas>
+  <canvas ref="myChart" id="lineChart"></canvas>
 </template>
 
 <script>
-import Chart from 'chart.js';
-
 export default {
     mounted() {
         const labels = [
@@ -33,8 +31,9 @@ export default {
         };
 
         // eslint-disable-next-line no-unused-vars
-        const myChart = new Chart(
-        document.getElementById('lineChart'),
+        const myChart = new this.$_Chart(
+            //document.getElementById('lineChart'),
+            this.$refs.myChart,
             config,
         );
     }

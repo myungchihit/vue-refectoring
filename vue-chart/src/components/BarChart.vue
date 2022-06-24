@@ -1,15 +1,15 @@
 <template>
-  <canvas id="barChart" width="400" height="400"></canvas>
+  <canvas ref="myChart" id="barChart" width="400" height="400"></canvas>
 </template>
 
 <script>
-import Chart from 'chart.js';
 
 export default {
   mounted() {
-    const ctx = document.getElementById('barChart');
+    //const ctx = document.getElementById('barChart');
+    const ctx = this.$refs.myChart;
     // eslint-disable-next-line no-unused-vars
-    const myChart = new Chart(ctx, {
+    const myChart = new this.$_Chart(ctx, {
         type: 'bar',
         data: {
             labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
