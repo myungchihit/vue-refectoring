@@ -3,9 +3,9 @@
     <fetch-data url="https://jsonplaceholder.typicode.com/users/1">
       <!-- ... -->
       <div slot-scope="{ response, loading }" v-if="!loading">
-
         <div v-if="!loading">
-          {{ response }}
+          <p>name : {{ response.name }}</p>
+          <p>email: {{ response.email }}</p>
         </div>
         <div v-if="loading">
           Loading....
