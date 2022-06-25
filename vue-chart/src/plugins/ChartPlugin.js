@@ -4,5 +4,8 @@ import Chart from 'chart.js';
 export default {
     install(Vue){
         Vue.prototype.$_Chart = Chart;
+
+        // BarChart.vue , LineChart.vue 에서 사용법
+        // this.$_Chart
     }
 }
